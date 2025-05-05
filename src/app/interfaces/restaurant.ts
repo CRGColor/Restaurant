@@ -5,5 +5,5 @@ export interface Restaurant {
     phone?: number;
     email?: string;
     webUrl?: string;
-    priceLevel?: number;
+    priceLevel?: string;
 }

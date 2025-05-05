@@ -1,1 +1,11 @@
-<p>restaurant-list works!</p>
+<h2>Restaurants</h2>
+<div class="restaurant-card">
+    @for (restaurant of restaurants; track $index) {
+        <h3>{{ restaurant.title }}</h3>
+        <p><strong>Address:</strong> {{ restaurant.address }}</p>
+        <p><strong>Phone:</strong> {{ restaurant.phone }}</p>
+        <p><strong>Email:</strong> {{ restaurant.email }}</p>
+        <p><strong>Website:</strong><a [href]="restaurant.webUrl" target="_blank">{{ restaurant.webUrl }}</a></p>
+        <p><strong>Price Range:</strong> {{ restaurant.priceLevel }}</p>
+    }
+</div>
