@@ -1,11 +1,30 @@
-<h2>Restaurants</h2>
-<div class="restaurant-card">
-    @for (restaurant of restaurants; track $index) {
-        <h3>{{ restaurant.title }}</h3>
-        <p><strong>Address:</strong> {{ restaurant.address }}</p>
-        <p><strong>Phone:</strong> {{ restaurant.phone }}</p>
-        <p><strong>Email:</strong> {{ restaurant.email }}</p>
-        <p><strong>Website:</strong><a [href]="restaurant.webUrl" target="_blank">{{ restaurant.webUrl }}</a></p>
-        <p><strong>Price Range:</strong> {{ restaurant.priceLevel }}</p>
-    }
+<div class="container-fluid">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @for (restaurant of restaurants; track $index) {
+                    <td>{{ restaurant.title }}</td>
+                    <td>{{ restaurant.address }}</td>
+                    <td>{{ restaurant.phone }}</td>
+                    <td>{{ restaurant.email }}</td>
+                    <td>{{ restaurant.priceLevel }}</td>
+                    <td>
+                        <button class="btn btn-info btn-sm" [routerLink]="['/restaurants', restaurant.id]">Details</button>
+                        <button class="btn btn-primary btn-sm" [routerLink]="['/restaurants/edit', restaurant.id]">Edit</button>
+                    </td>
+                }
+            </tr>
+        </tbody>
+    </table>
+
 </div>
